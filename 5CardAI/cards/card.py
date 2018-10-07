@@ -11,5 +11,5 @@ class Card:
         self.number = number
         self.suit = suit
         
-    def _str_(self):
+    def __str__(self):
         return str(self.number) + " " + self.suit
