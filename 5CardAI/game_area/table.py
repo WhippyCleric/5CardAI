@@ -10,5 +10,6 @@ class Table:
     seats = []
     
     def __init__(self, numberOfSeats):
-         for i in numberOfSeats:
+         
+        for i in range(numberOfSeats):
             self.seats.append(Seat(i))
