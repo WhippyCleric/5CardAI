@@ -3,7 +3,7 @@ Created on 6 Oct 2018
 
 @author: mdunn
 '''
-from cards.card import Card
+from cards.card import Card, Number, Suit
 from random import shuffle
 from cardai_exceptions.out_of_cards import OutOfCardsException
 class Deck:
@@ -11,17 +11,16 @@ class Deck:
 
     def __init__(self):
         self.cards = []
-        self.suits = ["DIAMONDS", "CLUBS", "HEARTS", "SPADES"]
         self.__createCards()
         
     def __createCards(self):
-        for suit in self.suits:
-            self.__cerateSuit(suit)
+        for suit in Suit:
+            self.__createSuit(suit)
         shuffle(self.cards)
             
-    def __cerateSuit(self, suit):
-        for i in range(13):
-            self.cards.append(Card(i, suit))
+    def __createSuit(self, suit):
+        for number in Number:
+            self.cards.append(Card(number, suit))
             
     def drawCard(self):
         if len(self.cards) > 0 :
