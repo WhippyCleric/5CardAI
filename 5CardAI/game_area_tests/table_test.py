@@ -17,12 +17,12 @@ class TableTest(unittest.TestCase):
         table = Table(2);
         table.seatPlayer(Player("Player1"));
         self.assertFalse(table.seats[0].isFree);
-        
+    
     def testSeatToManyPlayers(self):
         table = Table(2);
         table.seatPlayer(Player("Player1"));
         table.seatPlayer(Player("Player2"));
-        with self.assertRaises(NoFreeSeatException): table.seatPlayer(Player("Player3"))           
+        self.assertRaises(NoFreeSeatException, table.seatPlayer, Player("Player3"))           
         
 if __name__ == '__main__':
     unittest.main()

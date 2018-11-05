@@ -5,11 +5,9 @@ Created on 3 Nov 2018
 '''
 class Player:
     
-    hand = [];
-    name = "";
-    
     def __init__(self, name):
         self.name = name;
+        self.hand = [];
         
     def giveCards(self, cards):
         self.hand = cards;

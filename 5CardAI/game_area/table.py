@@ -5,12 +5,11 @@ Created on 3 Nov 2018
 '''
 from game_area.seat import Seat;
 from cardai_exceptions.no_free_seat import NoFreeSeatException;
-class Table:
+class Table(object):
     
-    seats = []
     
     def __init__(self, numberOfSeats):
-         
+        self.seats = []
         for i in range(numberOfSeats):
             self.seats.append(Seat(i));
             

@@ -7,10 +7,11 @@ from cards.card import Card
 from random import shuffle
 from cardai_exceptions.out_of_cards import OutOfCardsException
 class Deck:
-    cards = []
-    suits = ["DIAMONDS", "CLUBS", "HEARTS", "SPADES"]
+   
 
     def __init__(self):
+        self.cards = []
+        self.suits = ["DIAMONDS", "CLUBS", "HEARTS", "SPADES"]
         self.__createCards()
         
     def __createCards(self):

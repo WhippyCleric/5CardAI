@@ -5,12 +5,10 @@ Created on 3 Nov 2018
 '''
 class Seat:
     
-    number = -1;
-    player = None;
-    isFree = True;
-    
     def __init__(self, number):
         self.number = number;
+        self.player = None;
+        self.isFree = True;
     
     def seatPlayer(self, player):
         self.isFree = False;
