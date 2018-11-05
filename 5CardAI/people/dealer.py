@@ -17,7 +17,7 @@ class Dealer:
         print("Game is starting");
         self._deal();
         
-    def _deal(self):
+    def deal(self):
         seats = self.table.seats;
         deck = Deck();
         for seat in seats:
@@ -26,8 +26,6 @@ class Dealer:
                 for i in range (5):    
                     hand.append(deck.drawCard())
                 seat.player.giveCards(hand);
-                
-        self._printGameState();
         
     def _printGameState(self):
         self.table.printState();
