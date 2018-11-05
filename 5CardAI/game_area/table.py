@@ -26,3 +26,9 @@ class Table(object):
             if seat.isFree:
                 return seat;
         return None;
+    
+    def printState(self):
+        for seat in self.seats:
+            print("Seat: ");
+            seat.printState();
+        

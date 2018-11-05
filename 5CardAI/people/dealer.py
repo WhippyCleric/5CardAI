@@ -9,10 +9,25 @@ class Dealer:
     
     def __init__(self):
         self.table = Table(2);
-        self.deck = Deck();
         
     def seatPlayer(self, player):
         self.table.seatPlayer(player);
         
     def go(self):
         print("Game is starting");
+        self._deal();
+        
+    def _deal(self):
+        seats = self.table.seats;
+        deck = Deck();
+        for seat in seats:
+            if not seat.isFree:
+                hand = [];
+                for i in range (5):    
+                    hand.append(deck.drawCard())
+                seat.player.giveCards(hand);
+                
+        self._printGameState();
+        
+    def _printGameState(self):
+        self.table.printState();

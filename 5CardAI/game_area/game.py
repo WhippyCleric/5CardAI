@@ -8,7 +8,7 @@ class Game:
     def __init__(self, dealer):
         self.dealer = dealer;
         
-    def sitPlayer(self, player):
+    def seatPlayer(self, player):
         self.dealer.seatPlayer(player);
         
     def startGame(self):

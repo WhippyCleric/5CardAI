@@ -11,3 +11,9 @@ class Player:
         
     def giveCards(self, cards):
         self.hand = cards;
+        
+    def printState(self):
+        print("Name: " + self.name);
+        print("Hand: ");
+        for card in self.hand:
+            print(card.__str__());

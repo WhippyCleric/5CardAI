@@ -13,3 +13,8 @@ class Seat:
     def seatPlayer(self, player):
         self.isFree = False;
         self.player = player;
+        
+    def printState(self):
+        print("Number: " + str(self.number));
+        print("Player: ");
+        self.player.printState();
