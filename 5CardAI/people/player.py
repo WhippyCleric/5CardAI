@@ -7,9 +7,13 @@ Created on 3 Nov 2018
 
 class Player:
 
-    def __init__(self, name):
+    def __init__(self, name, action_collector):
         self.name = name
         self.hand = []
+        self.action_collector = action_collector
+
+    def collect_action(self):
+        return self.action_collector.collect_action()
 
     def give_card(self, card):
         self.hand.append(card)

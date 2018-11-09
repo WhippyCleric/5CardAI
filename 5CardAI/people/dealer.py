@@ -32,9 +32,12 @@ class Dealer:
     def _printGameState(self):
         self.table.print_state()
 
-    def process_actions(self, actions):
-        for player in actions:
-            player.take_cards(actions[player])
-            for i in range(len(actions[player])):
-                player.give_card(self.deck.draw_card())
-        self._printGameState()
+    def process_actions(self):
+        for seat in self.table.seats:
+            if not seat.is_free:
+                seat.player.print_state()
+                action = seat.player.collect_action()
+                seat.player.take_cards(action)
+                for i in range(len(action)):
+                    seat.player.give_card(self.deck.draw_card())
+                seat.player.print_state()
