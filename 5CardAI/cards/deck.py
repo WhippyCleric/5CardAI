@@ -5,7 +5,7 @@ Created on 6 Oct 2018
 '''
 from cards.card import Card, Number, Suit
 from random import shuffle
-from cardai_exceptions.out_of_cards import OutOfCardsException
+from cardai_exceptions.out_of_cards import OutOfCardsError
 
 
 class Deck:
@@ -27,4 +27,4 @@ class Deck:
         if len(self.cards) > 0:
             return self.cards.pop(0)
         else:
-            raise OutOfCardsException()
+            raise OutOfCardsError()

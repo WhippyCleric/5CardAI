@@ -4,7 +4,7 @@ Created on 3 Nov 2018
 @author: mdunn
 '''
 from game_area.seat import Seat
-from cardai_exceptions.no_free_seat import NoFreeSeatException
+from cardai_exceptions.no_free_seat import NoFreeSeatError
 
 
 class Table(object):
@@ -19,7 +19,7 @@ class Table(object):
         if freeSeat is not None:
             freeSeat.seat_player(player)
         else:
-            raise NoFreeSeatException()
+            raise NoFreeSeatError()
 
     def _find_free_seat(self):
         for seat in self.seats:

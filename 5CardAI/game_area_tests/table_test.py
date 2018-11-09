@@ -6,7 +6,7 @@ Created on 3 Nov 2018
 import unittest
 from game_area.table import Table
 from people.player import Player
-from cardai_exceptions.no_free_seat import NoFreeSeatException
+from cardai_exceptions.no_free_seat import NoFreeSeatError
 
 
 class TableTest(unittest.TestCase):
@@ -25,7 +25,7 @@ class TableTest(unittest.TestCase):
         table = Table(2)
         table.seat_player(Player("Player1"))
         table.seat_player(Player("Player2"))
-        self.assertRaises(NoFreeSeatException, table.seat_player, Player("Player3"))
+        self.assertRaises(NoFreeSeatError, table.seat_player, Player("Player3"))
 
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ Created on 6 Oct 2018
 '''
 import unittest
 from cards.deck import Deck
-from cardai_exceptions.out_of_cards import OutOfCardsException
+from cardai_exceptions.out_of_cards import OutOfCardsError
 
 
 class DeckTest(unittest.TestCase):
@@ -14,7 +14,7 @@ class DeckTest(unittest.TestCase):
         deck = Deck()
         for i in range(52):
             deck.draw_card()
-        with self.assertRaises(OutOfCardsException) as context:
+        with self.assertRaises(OutOfCardsError) as context:
             deck.draw_card()
 
 
