@@ -14,16 +14,16 @@ class Deck:
         self.cards = []
         self.__createCards()
 
-    def _createCards(self):
+    def _create_cards(self):
         for suit in Suit:
             self.__createSuit(suit)
         shuffle(self.cards)
 
-    def _createSuit(self, suit):
+    def _create_suit(self, suit):
         for number in Number:
             self.cards.append(Card(number, suit))
 
-    def drawCard(self):
+    def draw_card(self):
         if len(self.cards) > 0:
             return self.cards.pop(0)
         else:

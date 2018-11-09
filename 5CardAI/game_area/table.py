@@ -9,25 +9,25 @@ from cardai_exceptions.no_free_seat import NoFreeSeatException
 
 class Table(object):
 
-    def __init__(self, numberOfSeats):
+    def __init__(self, number_of_seats):
         self.seats = []
-        for i in range(numberOfSeats):
+        for i in range(number_of_seats):
             self.seats.append(Seat(i))
 
-    def seatPlayer(self, player):
-        freeSeat = self.findFreeSeat()
+    def seat_player(self, player):
+        freeSeat = self.find_free_seat()
         if freeSeat is not None:
-            freeSeat.seatPlayer(player)
+            freeSeat.seat_player(player)
         else:
             raise NoFreeSeatException()
 
-    def findFreeSeat(self):
+    def _find_free_seat(self):
         for seat in self.seats:
-            if seat.isFree:
+            if seat.is_free:
                 return seat
         return None
 
-    def printState(self):
+    def print_state(self):
         for seat in self.seats:
             print("Seat: ")
-            seat.printState()
+            seat.print_state()

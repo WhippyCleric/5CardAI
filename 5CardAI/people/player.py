@@ -11,10 +11,10 @@ class Player:
         self.name = name
         self.hand = []
 
-    def giveCards(self, cards):
+    def give_cards(self, cards):
         self.hand = cards
 
-    def printState(self):
+    def print_state(self):
         print("Name: " + self.name)
         print("Hand: ")
         for card in self.hand:

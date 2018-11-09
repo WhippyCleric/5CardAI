@@ -13,9 +13,9 @@ class DeckTest(unittest.TestCase):
     def test_deck_creation(self):
         deck = Deck()
         for i in range(52):
-            deck.drawCard()
+            deck.draw_card()
         with self.assertRaises(OutOfCardsException) as context:
-            deck.drawCard()
+            deck.draw_card()
 
 
 if __name__ == '__main__':

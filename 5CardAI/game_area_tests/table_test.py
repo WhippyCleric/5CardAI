@@ -11,21 +11,21 @@ from cardai_exceptions.no_free_seat import NoFreeSeatException
 
 class TableTest(unittest.TestCase):
 
-    def testConstruction(self):
+    def test_construction(self):
         table = Table(2)
-        numberOfSeats = table.seats.__len__()
-        self.assertEqual(2, numberOfSeats, "Expected a table with 2 seats")
+        number_of_seats = table.seats.__len__()
+        self.assertEqual(2, number_of_seats, "Expected a table with 2 seats")
 
-    def testSeatPlayer(self):
+    def test_seat_player(self):
         table = Table(2)
-        table.seatPlayer(Player("Player1"))
-        self.assertFalse(table.seats[0].isFree)
+        table.seat_player(Player("Player1"))
+        self.assertFalse(table.seats[0].is_free)
 
-    def testSeatToManyPlayers(self):
+    def test_seat_too_many_players(self):
         table = Table(2)
-        table.seatPlayer(Player("Player1"))
-        table.seatPlayer(Player("Player2"))
-        self.assertRaises(NoFreeSeatException, table.seatPlayer, Player("Player3"))
+        table.seat_player(Player("Player1"))
+        table.seat_player(Player("Player2"))
+        self.assertRaises(NoFreeSeatException, table.seat_player, Player("Player3"))
 
 
 if __name__ == '__main__':

@@ -10,13 +10,13 @@ class Seat:
     def __init__(self, number):
         self.number = number
         self.player = None
-        self.isFree = True
+        self.is_free = True
 
-    def seatPlayer(self, player):
-        self.isFree = False
+    def seat_player(self, player):
+        self.is_free = False
         self.player = player
 
-    def printState(self):
+    def print_state(self):
         print("Number: " + str(self.number))
         print("Player: ")
-        self.player.printState()
+        self.player.print_state()
