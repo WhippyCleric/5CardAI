@@ -19,4 +19,5 @@ class Seat:
     def print_state(self):
         print("Number: " + str(self.number))
         print("Player: ")
-        self.player.print_state()
+        if not self.is_free:
+            self.player.print_state()

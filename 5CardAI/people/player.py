@@ -11,8 +11,15 @@ class Player:
         self.name = name
         self.hand = []
 
-    def give_cards(self, cards):
-        self.hand = cards
+    def give_card(self, card):
+        self.hand.append(card)
+
+    def clear_hand(self):
+        self.hand = []
+
+    def take_cards(self, card_indexes):
+        for index in sorted(card_indexes, reverse=True):
+            self.hand.pop(index)
 
     def print_state(self):
         print("Name: " + self.name)

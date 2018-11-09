@@ -15,7 +15,7 @@ class Table(object):
             self.seats.append(Seat(i))
 
     def seat_player(self, player):
-        freeSeat = self.find_free_seat()
+        freeSeat = self._find_free_seat()
         if freeSeat is not None:
             freeSeat.seat_player(player)
         else:

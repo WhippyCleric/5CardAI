@@ -12,11 +12,11 @@ class Deck:
 
     def __init__(self):
         self.cards = []
-        self.__createCards()
+        self._create_cards()
 
     def _create_cards(self):
         for suit in Suit:
-            self.__createSuit(suit)
+            self._create_suit(suit)
         shuffle(self.cards)
 
     def _create_suit(self, suit):
@@ -28,3 +28,6 @@ class Deck:
             return self.cards.pop(0)
         else:
             raise OutOfCardsError()
+
+    def reset(self):
+        self.__init__()
