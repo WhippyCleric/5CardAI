@@ -10,8 +10,9 @@ from cards.card import Card
 class TestCard(unittest.TestCase):
 
     def test_construction(self):
-        sixOFDiamonds = Card(6, "DIAMONDS")
-        self.assertEqual(sixOFDiamonds.__str__(), '6 DIAMONDS')
+        six_oF_diamonds = Card(6, "DIAMONDS")
+        self.assertEqual(six_oF_diamonds.__str__(), '6 DIAMONDS')
+
 
 if __name__ == '__main__':
     unittest.main()
