@@ -13,5 +13,6 @@ class TestCard(unittest.TestCase):
         sixOFDiamonds = Card(6, "DIAMONDS")
         self.assertEqual(sixOFDiamonds.__str__(), '6 DIAMONDS')
 
+
 if __name__ == '__main__':
     unittest.main()
