@@ -5,6 +5,8 @@ Created on 3 Nov 2018
 '''
 from game_area.table import Table
 from cards.deck import Deck
+from beans.hand_result import HandResult
+from beans.round_result import RoundResult
 
 
 class Dealer:
@@ -25,6 +27,7 @@ class Dealer:
         seats = self.table.seats
         for seat in seats:
             if not seat.is_free:
+                seat.player.clear_hand()
                 hand = []
                 for i in range(5):
                     seat.player.give_card(self.deck.draw_card())
@@ -41,3 +44,20 @@ class Dealer:
                 for i in range(len(action)):
                     seat.player.give_card(self.deck.draw_card())
                 seat.player.print_state()
+
+    
+    def declare_winner(self):
+        hands = []
+        for seat in self.table.seats:
+            if not seat.is_free:
+                hands.append(HandResult(seat.player.hand, seat.player))
+        round_result = RoundResult(hands)
+        winning_hands = round_result.find_winning_hands()
+        
+        for seat in self.table.seats:
+            if not seat.is_free:
+                seat.player.tell_result(round_result)
+        
+        print("Round Winner(s)!: ")
+        for winning_hand in winning_hands:
+            print(winning_hand.player.name + " " + str(winning_hand.hand_type))

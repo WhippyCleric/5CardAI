@@ -3,6 +3,7 @@ Created on 3 Nov 2018
 
 @author: mdunn
 '''
+from beans import round_result
 
 
 class Player:
@@ -13,7 +14,7 @@ class Player:
         self.action_collector = action_collector
 
     def collect_action(self):
-        return self.action_collector.collect_action()
+        return self.action_collector.collect_action(self)
 
     def give_card(self, card):
         self.hand.append(card)
@@ -24,6 +25,9 @@ class Player:
     def take_cards(self, card_indexes):
         for index in sorted(card_indexes, reverse=True):
             self.hand.pop(index)
+            
+    def tell_result(self, round_result):
+        self.action_collector.tell_result(round_result)
 
     def print_state(self):
         print("Name: " + self.name)

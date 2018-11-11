@@ -23,9 +23,10 @@ class HandType(Enum):
 class HandResult():
 
 
-    def __init__(self, cards):
+    def __init__(self, cards, player):
         self.cards = cards
         self._order_cards()
+        self.player = player
         self.hand_type = self._deduce_hand_type(cards)
         self.hand_value = self._deduce_hand_value(cards, self.hand_type)
 
